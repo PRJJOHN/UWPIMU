@@ -1,0 +1,17 @@
+﻿<Page
+    x:Class="UWPTest.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:UWPTest"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid HorizontalAlignment="Right" Width="1500">
+        <Button x:Name="Btn1" Content="BtnTest" Height="223" Margin="102,433,0,0" VerticalAlignment="Top" Width="489" FontSize="48" Click="Button_Click" RenderTransformOrigin="0.504,0.522"/>
+        <TextBox x:Name="TextBox1" HorizontalAlignment="Left" Height="222" Margin="190,159,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="666" TextChanged="TextBox_TextChanged" FontSize="48"/>
+        <Button x:Name="Btn2" Content="BtnTest2" Height="223" Margin="671,433,0,0" VerticalAlignment="Top" Width="368" FontSize="48" Click="Btn2_Click"/>
+
+    </Grid>
+</Page>
