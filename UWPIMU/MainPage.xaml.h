@@ -17,5 +17,13 @@ namespace UWPIMU
 	public:
 		MainPage();
 
+	private:
+		Windows::Devices::Sensors::Accelerometer^ accelerometer;
+		Windows::Foundation::EventRegistrationToken readingToken;
+		void Btn1_Click(Platform::Object^ sender, Windows::UI::Xaml::RoutedEventArgs^ e);
+		void ReadingChanged(Windows::Devices::Sensors::Accelerometer^ sender, Windows::Devices::Sensors::AccelerometerReadingChangedEventArgs^ e);
+		void SetReadingText(Windows::Devices::Sensors::AccelerometerReading^ reading);
+		
+		void Btn2_Click(Platform::Object^ sender, Windows::UI::Xaml::RoutedEventArgs^ e);
 	};
 }

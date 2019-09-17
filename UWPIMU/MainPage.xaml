@@ -9,6 +9,9 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid>
+        <Button x:Name="Btn1" Content="OpenAcc" Height="157" Width="288" Margin="203,439,0,0" VerticalAlignment="Top" FontSize="36" Click="Btn1_Click"/>
+        <TextBox x:Name="TextBox1" HorizontalAlignment="Left" Height="151" Margin="203,239,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="666" FontSize="36"/>
+        <Button x:Name="Btn2" Content="CloseAcc" Height="157" Margin="588,439,0,0" VerticalAlignment="Top" Width="281" Click="Btn2_Click" FontSize="36"/>
 
     </Grid>
 </Page>
