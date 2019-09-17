@@ -31,6 +31,7 @@ MainPage::MainPage()
 void UWPIMU::MainPage::Btn1_Click(Platform::Object^ sender, Windows::UI::Xaml::RoutedEventArgs^ e)
 {
 	accelerometer = Accelerometer::GetDefault(AccelerometerReadingType::Standard);
+	accelerometer->ReportInterval = 16U;
 	readingToken = accelerometer->ReadingChanged += ref new TypedEventHandler<Accelerometer^, AccelerometerReadingChangedEventArgs^>(this, &UWPIMU::MainPage::ReadingChanged);
 }
 void UWPIMU::MainPage::ReadingChanged(Accelerometer^ sender, AccelerometerReadingChangedEventArgs^ e)
@@ -49,7 +50,7 @@ void UWPIMU::MainPage::ReadingChanged(Accelerometer^ sender, AccelerometerReadin
 }
 void UWPIMU::MainPage::SetReadingText(Windows::Devices::Sensors::AccelerometerReading^ reading)
 {
-	TextBox1->Text = "X: " + reading->AccelerationX.ToString() +
+	TextBox1->Text = "X: " + reading->AccelerationY.ToString() +
 		", Y: " + reading->AccelerationY.ToString() +
 		", Z: " + reading->AccelerationZ.ToString();
 }
