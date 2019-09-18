@@ -31,6 +31,7 @@ MainPage::MainPage()
 void UWPIMU::MainPage::Btn1_Click(Platform::Object^ sender, Windows::UI::Xaml::RoutedEventArgs^ e)
 {
 	accelerometer = Accelerometer::GetDefault(AccelerometerReadingType::Standard);
+	gyrometer = Gyrometer::GetDefault();
 	accelerometer->ReportInterval = 16U;
 	readingToken = accelerometer->ReadingChanged += ref new TypedEventHandler<Accelerometer^, AccelerometerReadingChangedEventArgs^>(this, &UWPIMU::MainPage::ReadingChanged);
 }
@@ -50,9 +51,13 @@ void UWPIMU::MainPage::ReadingChanged(Accelerometer^ sender, AccelerometerReadin
 }
 void UWPIMU::MainPage::SetReadingText(Windows::Devices::Sensors::AccelerometerReading^ reading)
 {
-	TextBox1->Text = "X: " + reading->AccelerationY.ToString() +
+	Windows::Devices::Sensors::GyrometerReading^ gyromsg = gyrometer->GetCurrentReading();
+	TextBox1->Text = "TS: "+ reading->Timestamp.UniversalTime.ToString()+ "X: " + reading->AccelerationX.ToString() +
 		", Y: " + reading->AccelerationY.ToString() +
 		", Z: " + reading->AccelerationZ.ToString();
+	TextBox2->Text = "TS: " + reading->Timestamp.UniversalTime.ToString() + "X: " + gyromsg->AngularVelocityX.ToString() +
+		", Y: " + gyromsg->AngularVelocityY.ToString() +
+		", Z: " + gyromsg->AngularVelocityZ.ToString();
 }
 
 
@@ -60,4 +65,16 @@ void UWPIMU::MainPage::SetReadingText(Windows::Devices::Sensors::AccelerometerRe
 void UWPIMU::MainPage::Btn2_Click(Platform::Object^ sender, Windows::UI::Xaml::RoutedEventArgs^ e)
 {
 	accelerometer->ReadingChanged -= readingToken;
+}
+
+
+void UWPIMU::MainPage::TextBox1_TextChanged(Platform::Object^ sender, Windows::UI::Xaml::Controls::TextChangedEventArgs^ e)
+{
+
+}
+
+
+void UWPIMU::MainPage::TextBox2_TextChanged(Platform::Object^ sender, Windows::UI::Xaml::Controls::TextChangedEventArgs^ e)
+{
+
 }

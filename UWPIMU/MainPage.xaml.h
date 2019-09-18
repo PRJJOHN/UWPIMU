@@ -19,11 +19,14 @@ namespace UWPIMU
 
 	private:
 		Windows::Devices::Sensors::Accelerometer^ accelerometer;
+		Windows::Devices::Sensors::Gyrometer^ gyrometer;
 		Windows::Foundation::EventRegistrationToken readingToken;
 		void Btn1_Click(Platform::Object^ sender, Windows::UI::Xaml::RoutedEventArgs^ e);
 		void ReadingChanged(Windows::Devices::Sensors::Accelerometer^ sender, Windows::Devices::Sensors::AccelerometerReadingChangedEventArgs^ e);
 		void SetReadingText(Windows::Devices::Sensors::AccelerometerReading^ reading);
 		
 		void Btn2_Click(Platform::Object^ sender, Windows::UI::Xaml::RoutedEventArgs^ e);
+		void TextBox1_TextChanged(Platform::Object^ sender, Windows::UI::Xaml::Controls::TextChangedEventArgs^ e);
+		void TextBox2_TextChanged(Platform::Object^ sender, Windows::UI::Xaml::Controls::TextChangedEventArgs^ e);
 	};
 }
